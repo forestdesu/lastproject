@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			background-image: url(bg.png);
+			background-size: 100%;
+			color: #1a1a64;
+			font-family: Edo SZ;
+			text-align: center;
+			margin: 0px;
+			padding: 0px
+		}
+		@font-face{
+			font-family: Edo SZ;
+			src: url(18942.otf);
+		}
+		h1{
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 20vh
+		}
+		h2{
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 15vh;
+			cursor: pointer
+		}
+		h3{
+			font-size: 40px;
+		}
+		.gameEnd{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			height: 100%;
+			width: 0px;
+			background-image: url(img/menu.png);
+			background-size: 100%;
+			padding-top: 5%
+		}
+		.play{
+			width: 45%
+		}
+		#kat0, #kat1, #kat2, #kat3, #kat4, #kat5, #kat6{
+			height: 17vh;
+			width: auto
+		}
+	</style>
+</head>
+<body>
+	<div class="location1">
+		<div>
+			<div class="col-12"><div class="col-2"></div><img src="img/logo.png" class="w-100 col-7 logo"><div class="col-2"></div></div>
+			<img src="img/play.png" class="mt-5 play">
+		</div>
+		
+	</div>
+	<div class="location2" style="display: none;">
+		<div class="col-12"><div class="col-3"></div><img src="kategorii/all.png" class="w-25 col-6 logo mt-3" id="kat6"><div class="col-3"></div></div>
+		<div class="col-10 mx-auto">
+			<div class="row">
+				<div class="col-6">
+					<div class="col-10 mt-4"><img src="kategorii/fauna.png" id="kat0"></div>
+					<div class="col-10 mt-4"><img src="kategorii/goroda.png" id="kat1"></div>
+					<div class="col-10 mt-4"><img src="kategorii/country.png" id="kat2"></div>
+				</div>
+				<div class="col-6">
+					<div class="col-10 mt-4"><img src="kategorii/science.png" id="kat3"></div>
+					<div class="col-10 mt-4"><img src="kategorii/names.png" id="kat4"></div>
+					<div class="col-10 mt-4"><img src="kategorii/hobbies.png" id="kat5"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="location3" style="display: none;">
+		<div class="col-8 row mx-auto text-center" id="main">
+
+		</div>
+		<div class="col-12 row">
+			<div class="col-4"><div class="gameEnd">
+				
+			</div>
+			<img src="img/1.png" class="w-100" id="img">
+		</div>
+			<div class="col-8 p-0 m-0" id="bykvy">
+				<div class="col-12 row text-center">
+					<h2>А</h2>
+					<h2>Б</h2>
+					<h2>В</h2>
+					<h2>Г</h2>
+					<h2>Д</h2>
+					<h2>Е</h2>
+					<h2>Ж</h2>
+					<h2>З</h2>
+				</div>
+				<div class="col-12 row text-center">
+					<h2>И</h2>
+					<h2>Й</h2>
+					<h2>К</h2>
+					<h2>Л</h2>
+					<h2>М</h2>
+					<h2>Н</h2>
+					<h2>О</h2>
+					<h2>П</h2>
+				</div>
+				<div class="col-12 row text-center">
+					<h2>Р</h2>
+					<h2>С</h2>
+					<h2>Т</h2>
+					<h2>У</h2>
+					<h2>Ф</h2>
+					<h2>Х</h2>
+					<h2>Ц</h2>
+					<h2>Ч</h2>
+				</div>
+				<div class="col-12 row text-center">
+					<h2>Ш</h2>
+					<h2>Щ</h2>
+					<h2>Ъ</h2>
+					<h2>Ы</h2>
+					<h2>Ь</h2>
+					<h2>Э</h2>
+					<h2>Ю</h2>
+					<h2>Я</h2>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<!--<script>window.$ = window.jQuery = require('./jquery-3.5.0.js');</script>-->
+	<script src="jquery-3.5.0.js"></script>
+	<script type="text/javascript">
+		function random(a){
+			var rand = Math.random() * a
+			var rand2 = Math.round(rand)
+			return rand2
+		}
+		$( ".play" ).on({ // прикрепляем обработчики для элемента <input>
+	    	"mousedown": function() { // прикрепляем обработчик для события click
+	     	$(".play").width("40%")
+	    },
+	   		"mouseup": function() { // прикрепляем обработчики для события click пространства имен myNamespace2
+	    	$(".play").width("45%")
+	    	$("body > div:nth-child(1)").fadeOut(1000).hide()
+	    	$("body > div:nth-child(2)").fadeIn(1500)
+	    }
+	 	})
+	 	let game = false
+	 	let lvl = 0
+		var slova = [["ЖИРАФ", "СУСЛИК", "ЛЕММИНГ", "ОСЬМИНОГ", "ЧИРОК"], ["ЭЛИСТА", "АТЛАНТА", "РОЧЕСТЕР", "КЕЙПТАУН", "ИЖЕВСК"], ["НОРВЕГИЯ", "ИРЛАНДИЯ", "ИСПАНИЯ", "АВСТРИЯ", "ИНДОНЕЗИЯ"], ["КОНЦЕПЦИЯ", "СТРАБИЗМ", "АНДРОГИН", "ГЕКАТОМБА", "УГОЛЬ"], ["АРТЕМ", "ВАРВАРА", "РОМА", "ЛЮБА", "ГЕОРГИЙ"], ["ФОТОГРАФИЯ", "АЛЬТИСТ", "ОРАТОРИЯ", "ВОКАЛ", "ШОППИНГ"]]
+		var bykvy
+		let img = 1
+		for (let a = 0;a < 7;a++){
+			$("#kat" + a).on("click", function(){ //проверяет категорию по клике на картинку (у всех картинок есть свой id)
+
+				if (a == 6) {
+					bykvy = slova[random(5)][lvl].split("")
+				} else {
+					bykvy = slova[a][lvl].split("")
+				}
+				game = true
+				let randm1 = bykvy[random(bykvy.length)]
+				let randm2 = bykvy[random(bykvy.length)]
+				let randm3 = bykvy[random(bykvy.length)]
+				$("body > div:nth-child(2)").fadeOut(1000).hide()
+	    		$("body > div:nth-child(3)").fadeIn(5000)
+				for (let i = 0;i < bykvy.length;i++){
+					$('#main').append("<h1>_</h1>")
+					if (bykvy[i] == randm1) {
+						$("#main > h1:nth-child(" + (i + 1) + ")").text(randm1)
+					}
+					if (bykvy[i] == randm2) {
+						$("#main > h1:nth-child(" + (i + 1) + ")").text(randm2)
+					}
+					if (bykvy.length > 5) {
+						if (bykvy[i] == randm3) {
+							$("#main > h1:nth-child(" + (i + 1) + ")").text(randm3)
+						}
+					}
+					
+				}
+				$('#bykvy').find('h2').on("click", function(){ // по клику из списка букв проверяет его цвет (черный), повторение от
+					if(game == true){
+						if ($(this).css("color") == "rgb(26, 26, 100)") {
+							let bas = false
+							for (let i = 0;i < bykvy.length;i++){ //после первого выполнения цикл ломается
+								if ($(this).text() == bykvy[i]) {
+									$(this).css("color", "green")	
+										$('#main h1').each(function(value){
+											$("#main > h1:nth-child(" + (i + 1) + ")").text(bykvy[i])
+										})
+										bas = true
+									}
+								}
+							if (bas == false){
+								$(this).css({
+									"color": "red",
+									"cursor": "default"
+								})
+								img++
+								$("#img").attr("src", "img/" + img + ".png")
+							}
+						}
+					}
+					if (bykvy.join("") == $("#main h1").text()){
+						game = false
+						$('.gameEnd').animate({width : "100%"}, 500).html("<h4 style='color: green'>Вы выиграли!</h4> <h3 class='mt-4' id='next'>Перейти на следующий уровень?</h3> <h3 class='mt-4' id='menu'>Выйти в меню</h3>")
+						$("#menu").on("click", function(){
+							$('#main').html("")
+							$("h2").css({
+								"color": "rgb(26, 26, 100)",
+								"cursor": "pointer"
+							})
+							$('.gameEnd').animate({width : "0%"}, 500).html("")
+							img = 1
+							$("#img").attr("src", "img/" + img + ".png")
+							$(".location3").hide()
+							$(".location1").show()
+							game = true
+						})
+						$("#next").on("click", function(){
+							lvl++
+							$("#main").html("")
+							if (a == 6) {
+								bykvy = slova[random(5)][lvl].split("")
+							} else {
+								bykvy = slova[a][lvl].split("")
+							}
+							for(let i = 0;i < bykvy.length;i++){
+								$('#main').append("<h1>_</h1>")
+								
+							}
+							$('#main h1').text("_")
+							randm1 = bykvy[random(bykvy.length)]
+							randm2 = bykvy[random(bykvy.length)]
+							randm3 = bykvy[random(bykvy.length)]
+							for (let i = 0;i < bykvy.length;i++){
+								if (bykvy[i] == randm1) {
+									$("#main > h1:nth-child(" + (i + 1) + ")").text(randm1)
+								}
+								if (bykvy[i] == randm2) {
+									$("#main > h1:nth-child(" + (i + 1) + ")").text(randm2)
+								}
+								if (bykvy.length > 5) {
+									if (bykvy[i] == randm3) {
+										$("#main > h1:nth-child(" + (i + 1) + ")").text(randm3)
+									}
+								}
+							}
+							$("h2").css({
+								"color": "rgb(26, 26, 100)",
+								"cursor": "pointer"
+							})
+							$('.gameEnd').animate({width : "0%"}, 500).html("")
+							img = 1
+							$("#img").attr("src", "img/" + img + ".png")
+							game = true
+						})
+					}
+					if (img == 9) {	
+						game = false
+						$('.gameEnd').animate({width : "100%"}, 500).html("<h4 style='color: red'>Вы проиграли!</h4> <h3 class='mt-4' id='retry'>Начать заново?</h3> <h3 class='mt-4' id='menu'>Выйти в меню</h3>")
+						$("#menu").on("click", function(){
+							$('#main').html("")
+							$("h2").css({
+								"color": "rgb(26, 26, 100)",
+								"cursor": "pointer"
+							})
+							$('.gameEnd').animate({width : "0%"}, 500).html("")
+							img = 1
+							$("#img").attr("src", "img/" + img + ".png")
+							$(".location3").hide()
+							$(".location1").show()
+							game = true
+						})
+						$("#retry").on("click", function(){
+							$('#main h1').text("_")
+							for (let i = 0;i < bykvy.length;i++){
+								if (bykvy[i] == randm1) {
+									$("#main > h1:nth-child(" + (i + 1) + ")").text(randm1)
+								}
+								if (bykvy[i] == randm2) {
+									$("#main > h1:nth-child(" + (i + 1) + ")").text(randm2)
+								}
+							}
+							$("h2").css({
+								"color": "rgb(26, 26, 100)",
+								"cursor": "pointer"
+							})
+							$('.gameEnd').animate({width : "0%"}, 500).html("")
+							img = 1
+							$("#img").attr("src", "img/" + img + ".png")
+							game = true
+						})
+					}
+				})
+
+			})			
+		}
+		
+	</script>
+</body>
+</html>
